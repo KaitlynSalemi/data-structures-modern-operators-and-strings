@@ -42,31 +42,55 @@ const restaurant = {
   },
 };
 
-// Rest Pattern and Perameters
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+// && and ||
+console.log(3 || 'Kaitlyn'); //3
+console.log('' || 'Kaitlyn'); //'Kaitlyn'
+console.log(true || 0); //true
+console.log(undefined || null); //null
 
-const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(pizza, risotto, otherFood);
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); //'Hello'
 
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
 
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
-  console.log(sum);
-};
-add(2, 3);
-add(5, 3, 7, 2);
-add(2, 3, 4, 5, 6, 7, 7, 8);
-const x = [23, 5, 4];
-add(...x);
+restaurant.numGuests = 23;
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
 
-restaurant.orderPizza('crust', 'sauce', 'cheese');
-restaurant.orderPizza('cheese');
+console.log(0 && 'Kaitlyn'); //0
+console.log(7 && 'Kaitlyn'); //'Kaitlyn'
+console.log('Hello' && 23 && null && 'Kaitlyn'); //null
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('cheese', 'pepperoni');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('cheese', 'pepperoni');
+// // Rest Pattern and Perameters
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+
+// const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(pizza, risotto, otherFood);
+
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i];
+//   }
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(2, 3, 4, 5, 6, 7, 7, 8);
+// const x = [23, 5, 4];
+// add(...x);
+
+// restaurant.orderPizza('crust', 'sauce', 'cheese');
+// restaurant.orderPizza('cheese');
 
 // // Spread opperator
 // const arr = [7, 8, 9];
