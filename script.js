@@ -42,30 +42,41 @@ const restaurant = {
   },
 };
 
-// && and ||
-console.log(3 || 'Kaitlyn'); //3
-console.log('' || 'Kaitlyn'); //'Kaitlyn'
-console.log(true || 0); //true
-console.log(undefined || null); //null
+// The Nullish Coalescing Operator ??
 
-console.log(undefined || 0 || '' || 'Hello' || 23 || null); //'Hello'
+// restaurant.numGuests = 23;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
 
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+// Nullish values: null and undefined (NOT 0 or '')
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect);
 
-restaurant.numGuests = 23;
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+// // && and ||
+// console.log(3 || 'Kaitlyn'); //3
+// console.log('' || 'Kaitlyn'); //'Kaitlyn'
+// console.log(true || 0); //true
+// console.log(undefined || null); //null
 
-console.log(0 && 'Kaitlyn'); //0
-console.log(7 && 'Kaitlyn'); //'Kaitlyn'
-console.log('Hello' && 23 && null && 'Kaitlyn'); //null
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null); //'Hello'
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('cheese', 'pepperoni');
-}
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
 
-restaurant.orderPizza && restaurant.orderPizza('cheese', 'pepperoni');
+// restaurant.numGuests = 23;
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
+
+// console.log(0 && 'Kaitlyn'); //0
+// console.log(7 && 'Kaitlyn'); //'Kaitlyn'
+// console.log('Hello' && 23 && null && 'Kaitlyn'); //null
+
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('cheese', 'pepperoni');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('cheese', 'pepperoni');
+
 // // Rest Pattern and Perameters
 // const [a, b, ...others] = [1, 2, 3, 4, 5];
 // console.log(a, b, others);
