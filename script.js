@@ -35,49 +35,80 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
-// Spread opperator
-const arr = [7, 8, 9];
-const badNewArray = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArray);
+// Rest Pattern and Perameters
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
-console.log(...newArr);
+const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, risotto, otherFood);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
-console.log(newMenu);
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
 
-// copy array
-const mainMenuCopy = [...restaurant.mainMenu]; //shallow copy
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(2, 3, 4, 5, 6, 7, 7, 8);
+const x = [23, 5, 4];
+add(...x);
 
-// joining arrays
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
+restaurant.orderPizza('crust', 'sauce', 'cheese');
+restaurant.orderPizza('cheese');
 
-// Iritables: arrays, strings, maps, sets, but NOT objects
-const str = 'Kaitlyn';
-const letters = [...str, ' ', 'S.'];
-console.log(letters);
-// console.log(`${...str} Salemi`); //syntax error
+// // Spread opperator
+// const arr = [7, 8, 9];
+// const badNewArray = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArray);
 
-// real-world example
-const ingredients = [
-  // prompt('Ingredient1?'), promp t('Ingredient2?'), prompt('Ingredient3?')
-];
-console.log(ingredients);
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+// console.log(...newArr);
 
-restaurant.orderPasta(...ingredients);
+// const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
+// console.log(newMenu);
 
-// spread opperator with objects
-const newRestaurant = { founded: 1998, ...restaurant, founder: 'Guiseppe' };
-console.log(newRestaurant);
+// // copy array
+// const mainMenuCopy = [...restaurant.mainMenu]; //shallow copy
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristorate Roma';
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// // joining arrays
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
+
+// // Iritables: arrays, strings, maps, sets, but NOT objects
+// const str = 'Kaitlyn';
+// const letters = [...str, ' ', 'S.'];
+// console.log(letters);
+// // console.log(`${...str} Salemi`); //syntax error
+
+// // real-world example
+// const ingredients = [
+//   // prompt('Ingredient1?'), promp t('Ingredient2?'), prompt('Ingredient3?')
+// ];
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+// // spread opperator with objects
+// const newRestaurant = { founded: 1998, ...restaurant, founder: 'Guiseppe' };
+// console.log(newRestaurant);
+
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorate Roma';
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 // //Destructuring Objects
 // restaurant.orderDelivery({
