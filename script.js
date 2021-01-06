@@ -42,15 +42,29 @@ const restaurant = {
   },
 };
 
-// The Nullish Coalescing Operator ??
+//  For-of Loop
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 
-// restaurant.numGuests = 23;
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+for (const item of menu) console.log(item);
 
-// Nullish values: null and undefined (NOT 0 or '')
-const guestsCorrect = restaurant.numGuests ?? 10;
-console.log(guestsCorrect);
+for (const item of menu.entries()) {
+  console.log(item);
+}
+
+console.log([...menu.entries()]);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+// // The Nullish Coalescing Operator ??
+// // restaurant.numGuests = 23;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
+
+// // Nullish values: null and undefined (NOT 0 or '')
+// const guestsCorrect = restaurant.numGuests ?? 10;
+// console.log(guestsCorrect);
 
 // // && and ||
 // console.log(3 || 'Kaitlyn'); //3
