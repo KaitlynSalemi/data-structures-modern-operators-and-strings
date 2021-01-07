@@ -57,6 +57,21 @@ for (const day of days) {
   console.log(`On ${day}, we are open ${open}`);
 }
 
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exhist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exhist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exhist');
+
+const users = [
+  {
+    name: 'Kaitlyn',
+    email: 'kaitlyn@hello.com',
+  },
+];
+
+// const users = [];
+
+console.log(users[0]?.name ?? 'user array empty');
+
 // //  For-of Loop
 // const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 
