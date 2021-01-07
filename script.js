@@ -44,6 +44,19 @@ const restaurant = {
   },
 };
 
+// Optional Chaining
+if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+const days = ['sun', 'mon', 'tue', 'wed', 'thru', 'fri', 'sat'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we are open ${open}`);
+}
+
 // //  For-of Loop
 // const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 
